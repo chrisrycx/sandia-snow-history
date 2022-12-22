@@ -27,7 +27,7 @@ def getdata(location,snowtype='SWE'):
         raise ValueError('snowtype must be SWE or DEPTH')
 
     #Extract data
-    with xr.open_dataset('data/4km_SWE_Depth_NM.nc') as ds:
+    with xr.open_dataset('../data/NMdata/4km_SWE_Depth_NM.nc') as ds:
         data = ds[snowtype].sel(lat=location[0],lon=location[1],method='nearest').to_pandas()
 
     return data
